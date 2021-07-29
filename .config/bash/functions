@@ -1,0 +1,50 @@
+# Create a new directory and enter it
+md() {
+  mkdir -p "$@" && cd "$@"
+}
+
+#showing git branches in bash prompt
+function parse_git_branch() {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+# Start an HTTP server from a directory, optionally specifying the port
+function server() {
+  local port="${1:-8000}"
+  open "http://localhost:${port}/"
+  # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
+  # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
+  python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+}
+
+# Syntax-highlight JSON strings or files
+function json() {
+  if [ -p /dev/stdin ]; then
+  # piping, e.g. `echo '{"foo":42}' | json`
+    python -mjson.tool | pygmentize -l javascript
+  else
+  # e.g. `json '{"filesoo":42}'`
+    python -mjson.tool <<< "$*" | pygmentize -l javascript
+  fi
+}
+
+# get gzipped size
+function gz() {
+  echo "orig size    (bytes):bytes "
+  cat "$1" | wc -c
+  echo "gzipped size (bytes): "
+  gzip -c "$1" | wc       -c
+}
+
+function git_info() {
+  color_white="\033[0;37m"
+  color_purple="\033[0;35m"
+  Color_Off="\e[m"
+  # check if we're in a git repo
+  git rev-parse --is-inside-work-tree &>/dev/null || return
+  # quickest  check for what branch we're on
+  branch=$(git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||')
+  # check if it's dirty (via github.com/sindresorhus/pure)
+  dirty=$(git diff --quiet --ignore-submodules HEAD &>/dev/null; [ $? -eq 1 ]&& echo -e "*")
+  echo -e "${color_white} on ${color_purple}$branch$dirty"
+}

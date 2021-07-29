@@ -1,0 +1,15 @@
+# Make vim the default editor
+export EDITOR="vim"
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+# Make some commands not show up in history
+export HISTIGNORE="ls:ls *"
+
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/share/npm/bin:~/bin"
+
+export AWS_CONFIG_FILE=$HOME/.aws-config

@@ -1,0 +1,113 @@
+# Directory Listings
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then   # GNU `ls`
+  colorflag="--color"
+else                                   # OS X `ls`
+  colorflag="-G"
+fi
+
+alias ll="ls -l ${colorflag}"
+alias lla="ls -la ${colorflag}"
+alias la="ls -a ${colorflag}"
+alias lsa="ls -a ${colorflag}"
+
+# Easier navigation: .., ..., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias -- -="cd -"
+
+#alias mysql="/usr/local/mysql/bin/mysql"
+#alias mysqladmin="/usr/local/mysql/bin/mysqladmin"
+
+#alias t="~/bin/todo.sh"
+
+# List only directories
+alias lsd='ls -l | grep "^d"'
+
+alias top='top -o cpu'
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+# docker shortcuts
+alias dc="docker compose"
+alias db="docker build"
+alias dex="docker exec -it"
+alias dl="docker logs -f"
+
+
+# git shortcuts
+alias gc="git commit -m $1"
+alias gca="git add -A; git commit -m $1"
+alias gcap=git_add_all_commit_and_push
+alias gst='git status'
+alias gf='git fetch'
+alias gm='git merge origin'
+alias gp='git push'
+alias gpl='git pull'
+alias gpom="git pull origin master"
+ 
+function git_add_all_commit_and_push () {
+  git add -A;
+  git commit -m "$1";
+  git push;
+}
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache"
+
+# Trim new lines and copy to clipboard
+#alias c="tr -d '\n' | pbcopy"
+
+# Shortcuts
+alias d="cd ~/Dropbox"
+#alias p="cd ~/Projects"
+alias g="git"
+alias v="vim"
+alias m="mate"
+
+# File size
+alias fs="stat -f \"%z bytes\""
+
+# ROT13-encode text. Works for decoding, too! ;)
+#alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+
+# Empty the Trash
+#alias emptytrash="rm -rfv ~/.Trash"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
+
+# Hide/show all desktop icons (useful when presenting)
+#alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+#alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Disable Spotlight
+#alias spotoff="sudo mdutil -a -i off"
+# Enable Spotlight
+#alias spoton="sudo mdutil -a -i on"
+
+# Recursively delete `.DS_Store` files
+alias cleanupDS="find . -name '*.DS_Store' -type f -ls -delete"
+
+alias osascript="arch -i386 osascript"
+
+alias python=/usr/local/bin/python3
+
+# simple python webserver
+alias pserve="python -m SimpleHTTPServer"
+
+# colored cat - easy_install Pygments
+alias c='pygmentize -O style=monokai -f console256 -g'
+
+# todo.txt aliases
+export TODOTXT_DEFAULT_ACTION=ls
+alias t='~/bin/todo.sh'
+
+
+
+
