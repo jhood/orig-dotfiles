@@ -1,12 +1,14 @@
 
 # read on login shell BEFORE .bashrc
 
+# get OS version for comparisons
+OS=`uname`
 
 # Load bash_prompt, exports, aliases, functions and extra
 # extra can be used for settings you don’t want to commit
 # load from ~/.config/bash
 for file in functions bash_prompt exports aliases extra; do
-  file="$HOME/.config/$file"
+  file="$HOME/.config/bash/$file"
   [ -e "$file" ] && source "$file"
 done
 
@@ -17,7 +19,9 @@ shopt -s nocaseglob
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
 # Add tab completion for `defaults read|write NSGlobalDomain`
-complete -W "NSGlobalDomain" defaults
+if [ $OS == "Darwin" ]; then
+  complete -W "NSGlobalDomain" defaults
+fi
 
 # z to change dirs
 #. ~/bin/z.sh

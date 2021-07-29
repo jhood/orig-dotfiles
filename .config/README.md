@@ -1,9 +1,6 @@
-# dotfiles
+# Dotfiles
+# Using bare git repo
 
-
-# using bare git repo
-
-###################################
 # Manage dotfiles
 
 # set up bare git repo for dotfiles
