@@ -1,0 +1,255 @@
+
+" --------------------
+" .vimrc config
+" 1.1.19 JAH
+" --------------------
+
+
+" needed running vim config from .config/vim
+set runtimepath+=~/.config/vim,~/.config/vim/after
+set viminfo+=n~/.config/vim/viminfo
+
+
+
+" Plug plugin manager...
+"
+if empty(glob('~/.config/vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
+  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.config/vim/plugged')
+Plug 'scrooloose/nerdtree'
+call plug#end()
+
+
+
+
+set nocompatible
+filetype off
+filetype plugin indent on    " required
+
+
+" Default color scheme
+color twilight
+
+
+" Basic options 
+set modelines=0
+set autoindent
+set showmode
+set showcmd
+set hidden
+set visualbell
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+
+set norelativenumber
+set laststatus=2
+set history=1000
+set list
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set lazyredraw
+set matchtime=3
+set showbreak=↪
+set splitbelow
+set splitright
+set autowrite
+set autoread
+set shiftround
+set title
+set linebreak
+"set colorcolumn=+1
+set number
+syntax on
+
+let mapleader=","
+
+" remap esc...
+imap jj <Esc>
+
+" title for window in term
+set title
+
+" Set encoding
+set encoding=utf-8
+
+" Whitespace stuff
+set nowrap
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+" reload files changed outside of vim
+set autoread
+
+" display tabs and trailing spaces
+set list listchars=tab:\ \ ,trail:·
+
+" indenting
+set ai         "autoindent
+set si         "smart indent
+set smarttab
+
+
+" Searching
+set nohlsearch
+set incsearch
+set ignorecase
+
+" toggle hlsearch with F5
+map <F5> :set hls!<bar>set hls?<CR>
+
+" save up to 100 marks and f1 is global marks (caps) are enabled
+set viminfo='100,f1
+
+" Tab completion
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
+
+" Status bar
+set laststatus=2
+
+set statusline=
+set statusline+=%#todo#  "switch to todo highlight
+set statusline+=%F        "filename
+set statusline+=%*
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}] "file format
+set statusline+=%h      "help file flag
+set statusline+=%m      "modified flag
+set statusline+=%r      "read only flag
+set statusline+=%#error#  "switch to todo highlight
+set statusline+=%y      "filetype
+set statusline+=%*
+set statusline+=%=      "left/right separator
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+
+" Show (partial) command in the status line
+set showcmd
+set showmode
+
+" The current buffer can be put to the background without writing to disk;
+" When a background buffer becomes current again, marks and undo-history are remembered.
+" Turn this on.
+" http://items.sjbach.com/319/configuring-vim-right
+set hidden
+
+" don't need swapfiles...
+set noswapfile
+set nobackup
+set nowritebackup
+set noundofile
+
+" turn off cursor blinking
+set gcr=a:blinkon0
+
+" scroll the viewport faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+" map vv for visual line mode
+nmap vv V
+
+" Remember last location in file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
+
+" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+
+
+" Convience mappings 
+
+" Toggle line numbers
+nnoremap <leader>n :setlocal number!<cr>
+
+" Copying/pasting text to the system clipboard.
+noremap  <leader>p "+p
+vnoremap <leader>y "+y
+nnoremap <leader>y VV"+y
+nnoremap <leader>Y "+y
+
+
+" Yank to end of line
+nnoremap Y y$
+
+" substitute
+nnoremap <c-s> :%s/
+vnoremap <c-s> :s/
+
+" Easier to type, and I never use the default behavior.
+noremap  H ^
+noremap  L $
+vnoremap L g_
+
+" Heresy
+"inoremap <c-a> <esc>I
+"inoremap <c-e> <esc>A
+"cnoremap <c-a> <home>
+"cnoremap <c-e> <end>
+
+
+
+" add json syntax highlighting
+au BufNewFile,BufRead *.json set ft=javascript
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" load the plugin and indent settings for the detected filetype
+filetype plugin on
+filetype indent on
+
+" Opens an edit command with the path of the currently edited file filled in
+" q
+" Normal mode: <Leader>e
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Opens a tab edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>t
+map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" Inserts the path of the currently edited file into a command
+" Command mode: Ctrl+P
+cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+
+" Unimpaired configuration
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
+
+" Easy buffer navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" act like command line for beginning and end of line
+inoremap <C-e> <Esc>A
+inoremap <C-a> <Esc>I
+
+
+" Plugin Configuration 
+
+"""""""""""""""""""""
+" Plugin Configurations
+"
+map <Leader>n  :NERDTreeToggle<CR>
+
+" line cursor in insert mode
+if $TERM_PROGRAM =~ "iTerm"
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+endif
+
