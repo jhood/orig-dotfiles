@@ -32,8 +32,8 @@ filetype plugin indent on    " required
 
 
 " Default color scheme
-color twilight
-
+"color twilight
+color dracula
 
 " Basic options 
 set modelines=0
