@@ -64,7 +64,14 @@ bindkey -s '^o' 'ranger^M'
 
 # alias for git dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+
 alias lsa='ls -ah'
+alias ll='ls -l'
+alias lla='ls -la'
+alias la='ls -la'
+
+alias ..='cd ..'
+alias ...='cd ../..'
 
 # starship prompt
 eval "$(starship init zsh)"
