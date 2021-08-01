@@ -1,7 +1,7 @@
 
 " --------------------
 " .vimrc config
-" 1.1.19 JAH
+" 7.31.21 JAH
 " --------------------
 
 
@@ -21,6 +21,7 @@ endif
 
 call plug#begin('~/.config/vim/plugged')
 Plug 'scrooloose/nerdtree'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 
@@ -33,7 +34,7 @@ filetype plugin indent on    " required
 
 " Default color scheme
 "color twilight
-color dracula
+"color dracula
 
 " Basic options 
 set modelines=0

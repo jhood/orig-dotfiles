@@ -90,8 +90,8 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 # read vim config from .config/vim
-VIMINIT="source ~/.config/vim/vimrc"
+export VIMINIT="source ~/.config/vim/vimrc"
 #export VIMINIT='source $MYVIMRC'
-#export MYVIMRC='~/.config/vim/vimrc'·
+export MYVIMRC='source ~/.config/vim/vimrc'·
 
 
