@@ -65,6 +65,7 @@ bindkey -s '^o' 'ranger^M'
 # alias for git dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
+alias ls="ls -hN --color=auto --group-directories-first"
 alias lsa='ls -ah'
 alias ll='ls -l'
 alias lla='ls -la'
