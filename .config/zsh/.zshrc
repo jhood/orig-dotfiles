@@ -11,6 +11,9 @@ setopt interactive_comments
 stty stop undef		# Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')
 
+# don't confim on deletions
+setopt rmstarsilent
+
 # beeping is annoying
 unsetopt BEEP
 
