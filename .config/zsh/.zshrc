@@ -76,6 +76,8 @@ alias ...='cd ../..'
 alias r='ranger'
 alias v='vim'
 
+alias sshagent='eval $(ssh-agent -s)'
+
 # starship prompt
 eval "$(starship init zsh)"
 
