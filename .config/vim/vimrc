@@ -25,18 +25,18 @@ Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 
-
-
-set nocompatible
-filetype off
-filetype plugin indent on    " required
-
-
 " Default color scheme
 "color twilight
 "color dracula
 
 " Basic options 
+set nocompatible
+filetype off
+filetype plugin indent on    " required
+syntax on
+set encoding=utf-8
+set number relativenumber
+
 set modelines=0
 set autoindent
 set showmode
@@ -47,24 +47,20 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 
-set norelativenumber
 set laststatus=2
-set history=1000
+set history=5000
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set lazyredraw
 set matchtime=3
 set showbreak=↪
-set splitbelow
-set splitright
+set splitbelow splitright
 set autowrite
 set autoread
 set shiftround
 set title
 set linebreak
 "set colorcolumn=+1
-set number
-syntax on
 
 let mapleader=","
 

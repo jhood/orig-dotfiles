@@ -73,6 +73,9 @@ alias la='ls -la'
 alias ..='cd ..'
 alias ...='cd ../..'
 
+alias r='ranger'
+alias v='vim'
+
 # starship prompt
 eval "$(starship init zsh)"
 
@@ -92,6 +95,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # read vim config from .config/vim
 export VIMINIT="source ~/.config/vim/vimrc"
 #export VIMINIT='source $MYVIMRC'
-export MYVIMRC='source ~/.config/vim/vimrc'·
+#export MYVIMRC='source ~/.config/vim/vimrc'·
 
 
