@@ -4,6 +4,8 @@
 # and in .xprofile
 #export ZDOTDIR=$HOME/.config/zsh
 
+# get OS version for comparisons
+export OS=`uname`
 
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
@@ -65,7 +67,7 @@ bindkey -s '^o' 'ranger^M'
 # alias for git dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
-alias ls="ls -hN --color=auto --group-directories-first"
+#alias ls="ls --color=auto --group-directories-first"
 alias lsa='ls -ah'
 alias ll='ls -l'
 alias lla='ls -la'
@@ -96,8 +98,16 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
 # read vim config from .config/vim
-export VIMINIT="source ~/.config/vim/vimrc"
+#if [ `uname` == "Darwin" ]; then
+#  export VIMINIT='~/.config/vim/vimrc'
+#fi
+#if [ $OS == "Linux" ]; then
+#  export MYVIMRC='~/.config/vim/vimrc'·
+#fi
+
+export MYVIMRC="~/.config/vim/vimrc"
+export VIMINIT=":set runtimepath+=~/.confg/vim|:source $MYVIMRC"
+
 #export VIMINIT='source $MYVIMRC'
-#export MYVIMRC='source ~/.config/vim/vimrc'·
 
 
