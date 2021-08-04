@@ -108,9 +108,8 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 #  export MYVIMRC='~/.config/vim/vimrc'·
 #fi
 
+export VIMINIT='source $MYVIMRC'
 export MYVIMRC="~/.config/vim/vimrc"
-export VIMINIT=":set runtimepath+=~/.confg/vim|:source $MYVIMRC"
-
-#export VIMINIT='source $MYVIMRC'
+#export VIMINIT=":set runtimepath+=~/.confg/vim|:source $MYVIMRC"
 
 

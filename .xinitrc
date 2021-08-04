@@ -40,6 +40,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+#remap caps lock to escape
+xmodmap -e "clear lock"
+xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+
+
 #twm &
 #xclock -geometry 50x50-1+1 &
 #xterm -geometry 80x50+494+51 &
