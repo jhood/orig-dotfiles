@@ -1,4 +1,3 @@
-
 " --------------------
 " .vimrc config
 " 8.4.21  JAH
@@ -28,6 +27,7 @@ call plug#end()
 " Default color scheme
 "color twilight
 "color dracula
+colorscheme nord
 
 " Basic options 
 set nocompatible
@@ -79,6 +79,9 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+
+"get rid of the crappy commenting behavior
+set formatoptions-=c formatoptions-=r formatoptions-=o
 
 " reload files changed outside of vim
 set autoread
