@@ -36,6 +36,9 @@ eval "$(starship init bash)"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # read vim config from .config/vim
-VIMINIT="source ~/.config/vim/vimrc"
+#export MYVIMRC="~/.config/vim/vimrc"
+#export VIMINIT='source $MYVIMRC'
+export VIMINIT="~/.config/vim/vimrc"
+
 
 
