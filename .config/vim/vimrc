@@ -19,15 +19,20 @@ if empty(glob('~/.config/vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/vim/plugged')
-Plug 'scrooloose/nerdtree'
-Plug 'arcticicestudio/nord-vim'
+  Plug 'scrooloose/nerdtree'
+" colorschemes
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'dracula/vim'
 call plug#end()
 
+" set initial options
+set background=dark
 
 " Default color scheme
 "color twilight
-"color dracula
-colorscheme nord
+"colorscheme dracula
+"colorscheme nord
+colorscheme iceberg
 
 " Basic options 
 set nocompatible
