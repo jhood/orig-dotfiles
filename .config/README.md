@@ -38,3 +38,8 @@ git clone --bare https://github.com/jhood/dotfiles.git $HOME/.dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 config checkout
+
+# change git https repo origin to ssh
+git remote set-url origin git@github.com:jhood/repo.git
+
+
