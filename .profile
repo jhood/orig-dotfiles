@@ -5,7 +5,7 @@
 # read on login shell BEFORE anything
 
 # env settings
-export PATH="$PATH:$HOME/bin"
+export PATH="$HOME/bin:$PATH"
 export EDITOR="vim"
 export TERMINAL="xterm"
 export BROWSER="chromium"
