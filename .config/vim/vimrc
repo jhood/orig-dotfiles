@@ -19,6 +19,7 @@ if empty(glob('~/.config/vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/vim/plugged')
+" Tools
   Plug 'scrooloose/nerdtree'
 " colorschemes
   Plug 'arcticicestudio/nord-vim'
@@ -66,6 +67,8 @@ set shiftround
 set title
 set linebreak
 "set colorcolumn=+1
+set wildmenu
+
 
 let mapleader=","
 

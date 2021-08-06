@@ -1,0 +1,183 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/jhood/
+	..
+1628214549
+'b
+	/home/jhood/bin/
+	..
+1628214549
+'h
+	/home/jhood/
+	..
+1628214549
+'z
+	/home/jhood/.config/vifm
+	..
+1628214549
+
+# Bookmarks:
+
+# TUI:
+al
+q1
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/jhood
+	docs
+10
+d/home/jhood/docs
+	docker.server.md
+5
+d/home/jhood
+	src
+12
+d/home
+	jhood
+1
+d/
+	home
+5
+d/home
+	jhood
+1
+d/home/jhood
+	src
+12
+d/home/jhood/src
+	..
+0
+d/home/jhood
+	docs
+10
+d/home/jhood/docs
+	..
+0
+d/home/jhood
+	docs
+10
+d/home/jhood/docs
+	..
+0
+d/home/jhood
+	docs
+10
+d/home
+	jhood
+1
+d/home/jhood
+	docs
+10
+d/home/jhood/docs
+	docker.server.md
+5
+d/home/jhood
+	bin
+9
+d/home/jhood/bin
+	..
+0
+d/home/jhood
+	bin
+9
+d/home/jhood/bin
+	..
+0
+d/home/jhood
+	docs
+10
+d/home/jhood/docs
+	..
+0
+d/home/jhood
+	Pictures
+5
+d/home/jhood/Pictures
+	wallpaper
+1
+d/home/jhood/Pictures/wallpaper
+	..
+0
+d/home/jhood/Pictures
+	..
+0
+d/home/jhood
+	docs
+10
+d/home/jhood/docs
+	pixelbook.linux.install.md
+13
+d/home/jhood
+	docs
+10
+d/home/jhood/docs
+	pixelbook.linux.install.md
+13
+d/home/jhood
+	docs
+10
+d/home
+	jhood
+1
+d/home/jhood
+	docs
+10
+d/home/jhood/docs
+	pixelbook.linux.install.md
+13
+d/home/jhood
+	docs
+10
+d/home
+	jhood
+1
+d/home/jhood
+	docs
+10
+d/home/jhood/docs
+	notes.txt
+12
+d
+
+# Right window history (oldest to newest):
+D/home/jhood
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:classify
+:help
+:set vifminfo+=tui
+:view
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0
