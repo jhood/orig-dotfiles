@@ -116,7 +116,7 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:  Terminal"
 set $ws2 "2:  Browser"
-set $ws3 "3"
+set $ws3 "3:  Spotify"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
@@ -237,6 +237,8 @@ bar {
 
 # Display Resolution
 
+# run tall_layout extension
+exec --no-startup-id ~/.config/i3/scripts/tall_layout.py
 
 # Display Wallpaper
 exec_always feh --bg-fill ~/Pictures/wallpaper/default.jpg
@@ -244,6 +246,7 @@ exec_always feh --bg-fill ~/Pictures/wallpaper/default.jpg
 
 # Assign Programs to Workspaces (xprof to find class)
 #for_window [class="Chromium"] move to workspace $ws2
+for_window [class="Spotify"] move to workspace $ws3
 
 
 # Window Compositor
@@ -254,8 +257,6 @@ exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/c
 # Screen lock
 exec xautolock -time 10 -locker i3lock &
 
-# run tall_layout extension
-exec --no-startup-id ~/.config/i3/scripts/tall_layout.py
 
 
 
